@@ -1,6 +1,7 @@
 plugins {
     application
     distribution
+    checkstyle
 }
 
 group = "hexlet.code"
