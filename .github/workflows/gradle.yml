@@ -18,12 +18,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Setup and run tests
+      working-directory: ./app
     - uses: actions/setup-java@v4
       with:
         java-version: '21'
         distribution: 'temurin'
     - uses: gradle/gradle-build-action@v3
       with:
-        gradle-version: 8.7
+        gradle-version: 8.7 
     - run: ./gradlew checkstyleMain
     - run: ./gradlew test
