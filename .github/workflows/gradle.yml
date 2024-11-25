@@ -7,6 +7,7 @@
 
 name: Java CI with Gradle
 
+
 on:
   - push
   - pull_request
@@ -18,8 +19,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Setup and run tests
-      working-directory: ./app
     - uses: actions/setup-java@v4
       with:
         java-version: '21'
