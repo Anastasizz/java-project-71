@@ -8,8 +8,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class Differ {
@@ -25,11 +25,12 @@ public class Differ {
 
         StringBuilder result = new StringBuilder();
 
-        //если нельзя использовать Set, можно написать ф-ю для List
-        //List<String> allKeys = getKeysList(value1, value2);
-        Set<String> allKeys = new TreeSet<>();
-        allKeys.addAll(value1.keySet());
-        allKeys.addAll(value2.keySet());
+        List<String> allKeys = new ArrayList<>(value1.keySet());
+        for (var key : value2.keySet()) {
+            if (!allKeys.contains(key)) {
+                allKeys.add(key);
+            }
+        }
 
         result.append("{\n");
         for (var key : allKeys) {
@@ -65,3 +66,6 @@ public class Differ {
         return result.toString();
     }
 }
+
+
+

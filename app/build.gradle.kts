@@ -2,6 +2,7 @@ plugins {
     application
     distribution
     checkstyle
+    id("com.github.ben-manes.versions") version "0.51.0"
 }
 
 group = "hexlet.code"
@@ -17,7 +18,6 @@ dependencies {
     implementation("info.picocli:picocli:4.7.6")
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
     implementation("com.fasterxml.jackson.core:jackson-databind:2.18.1")
-
 }
 
 tasks.test {
