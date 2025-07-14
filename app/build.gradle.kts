@@ -31,6 +31,7 @@ sonar {
         property("sonar.projectKey", "Anastasizz_java-project-71")
         property("sonar.organization", "anastasizz")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml")
     }
 }
 
