@@ -11,3 +11,6 @@ checkstyle:
 
 test:
 	cd app && ./gradlew test
+
+report:
+	cd app && ./gradlew jacocoTestReport

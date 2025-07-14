@@ -2,6 +2,7 @@ plugins {
     application
     distribution
     checkstyle
+    jacoco
     id("com.github.ben-manes.versions") version "0.51.0"
     id("org.sonarqube") version "6.2.0.5505"
 }
@@ -31,6 +32,13 @@ sonar {
         property("sonar.organization", "anastasizz")
         property("sonar.host.url", "https://sonarcloud.io")
     }
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
 }
 
 application {

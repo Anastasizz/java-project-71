@@ -21,6 +21,7 @@ jobs:
       #- run: ./gradlew test
       - run: make build
       - run: make test
+      - run: make report
       #- run: checkstyle
       # - name: Publish code coverage
       #   uses: paambaati/codeclimate-action@v9.0.0
