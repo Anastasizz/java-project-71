@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Differ {
@@ -31,6 +32,7 @@ public class Differ {
                 allKeys.add(key);
             }
         }
+        Collections.sort(allKeys);
 
         result.append("{\n");
         for (var key : allKeys) {
@@ -61,7 +63,7 @@ public class Differ {
                 }
             }
         }
-        result.append("}\n");
+        result.append("}");
         //System.out.println(result.toString());
         return result.toString();
     }

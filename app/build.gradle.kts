@@ -3,6 +3,7 @@ plugins {
     distribution
     checkstyle
     id("com.github.ben-manes.versions") version "0.51.0"
+    id("org.sonarqube") version "6.2.0.5505"
 }
 
 group = "hexlet.code"
@@ -22,6 +23,14 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "Anastasizz_java-project-71")
+        property("sonar.organization", "anastasizz")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 application {

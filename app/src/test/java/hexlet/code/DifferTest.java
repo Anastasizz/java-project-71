@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -31,7 +31,43 @@ public class DifferTest {
     }
 
     @Test
-    public void generateTest() {
-
+    public void addKey() throws Exception {
+        String expected = readFixture("addKey/expected.txt");
+        String input1Path = getFixturePath("addKey/input1.json").toString();
+        String input2Path = getFixturePath("addKey/input2.json").toString();
+        String actual = Differ.generate(input1Path, input2Path);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void changeKey() throws Exception {
+        String expected = readFixture("changeKey/expected.txt");
+        String input1Path = getFixturePath("changeKey/input1.json").toString();
+        String input2Path = getFixturePath("changeKey/input2.json").toString();
+        String actual = Differ.generate(input1Path, input2Path);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void deleteKey() throws Exception {
+        String expected = readFixture("deleteKey/expected.txt");
+        String input1Path = getFixturePath("deleteKey/input1.json").toString();
+        String input2Path = getFixturePath("deleteKey/input2.json").toString();
+        String actual = Differ.generate(input1Path, input2Path);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void sameKey() throws Exception {
+        String expected = readFixture("sameKey/expected.txt");
+        String input1Path = getFixturePath("sameKey/input1.json").toString();
+        String input2Path = getFixturePath("sameKey/input2.json").toString();
+        String actual = Differ.generate(input1Path, input2Path);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void combCase() throws Exception {
+        String expected = readFixture("combCase/expected.txt");
+        String input1Path = getFixturePath("combCase/input1.json").toString();
+        String input2Path = getFixturePath("combCase/input2.json").toString();
+        String actual = Differ.generate(input1Path, input2Path);
+        assertEquals(expected, actual);
     }
 }

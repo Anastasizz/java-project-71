@@ -4,7 +4,7 @@ run-dist:
 	cd app && ./build/install/app/bin/app
 
 build:
-	cd app && ./gradlew clean build
+	cd app && ./gradlew build
 
 checkstyle:
 	cd app && ./gradlew checkstyleMain
