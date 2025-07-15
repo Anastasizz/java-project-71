@@ -26,6 +26,7 @@ public class App implements Callable<Integer> {
     }
 
     public static void main(String[] args) throws Exception {
+        //args = new String[] {"temp/input1.yaml", "temp/input2.yaml"};
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }

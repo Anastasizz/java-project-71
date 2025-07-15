@@ -30,16 +30,9 @@ public class DifferTest {
         return Files.readString(path).trim();
     }
 
+
     @Test
-    public void addKey() throws Exception {
-        String expected = readFixture("addKey/expected.txt");
-        String input1Path = getFixturePath("addKey/input1.json").toString();
-        String input2Path = getFixturePath("addKey/input2.json").toString();
-        String actual = Differ.generate(input1Path, input2Path);
-        assertEquals(expected, actual);
-    }
-    @Test
-    public void changeKey() throws Exception {
+    public void changeKeyJson() throws Exception {
         String expected = readFixture("changeKey/expected.txt");
         String input1Path = getFixturePath("changeKey/input1.json").toString();
         String input2Path = getFixturePath("changeKey/input2.json").toString();
@@ -47,7 +40,15 @@ public class DifferTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void deleteKey() throws Exception {
+    public void changeKeyYaml() throws Exception {
+        String expected = readFixture("changeKey/expected.txt");
+        String input1Path = getFixturePath("changeKey/input1.yaml").toString();
+        String input2Path = getFixturePath("changeKey/input2.yaml").toString();
+        String actual = Differ.generate(input1Path, input2Path);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void deleteKeyJson() throws Exception {
         String expected = readFixture("deleteKey/expected.txt");
         String input1Path = getFixturePath("deleteKey/input1.json").toString();
         String input2Path = getFixturePath("deleteKey/input2.json").toString();
@@ -55,7 +56,15 @@ public class DifferTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void sameKey() throws Exception {
+    public void deleteKeyYaml() throws Exception {
+        String expected = readFixture("deleteKey/expected.txt");
+        String input1Path = getFixturePath("deleteKey/input1.yaml").toString();
+        String input2Path = getFixturePath("deleteKey/input2.yaml").toString();
+        String actual = Differ.generate(input1Path, input2Path);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void sameKeyJson() throws Exception {
         String expected = readFixture("sameKey/expected.txt");
         String input1Path = getFixturePath("sameKey/input1.json").toString();
         String input2Path = getFixturePath("sameKey/input2.json").toString();
@@ -63,10 +72,26 @@ public class DifferTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void combCase() throws Exception {
+    public void sameKeyYaml() throws Exception {
+        String expected = readFixture("sameKey/expected.txt");
+        String input1Path = getFixturePath("sameKey/input1.yaml").toString();
+        String input2Path = getFixturePath("sameKey/input2.yaml").toString();
+        String actual = Differ.generate(input1Path, input2Path);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void combCaseJson() throws Exception {
         String expected = readFixture("combCase/expected.txt");
         String input1Path = getFixturePath("combCase/input1.json").toString();
         String input2Path = getFixturePath("combCase/input2.json").toString();
+        String actual = Differ.generate(input1Path, input2Path);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void combCaseYaml() throws Exception {
+        String expected = readFixture("combCase/expected.txt");
+        String input1Path = getFixturePath("combCase/input1.yaml").toString();
+        String input2Path = getFixturePath("combCase/input2.yaml").toString();
         String actual = Differ.generate(input1Path, input2Path);
         assertEquals(expected, actual);
     }
