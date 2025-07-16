@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.List;
 
-public class FormaterStylish implements Formater{
+public class FormaterStylish implements Formater {
     @Override
     public String format(List<DiffEntry> diffEntries) {
         StringBuilder result = new StringBuilder();

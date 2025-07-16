@@ -2,7 +2,6 @@ package hexlet.code;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
@@ -23,14 +22,14 @@ public class DifferTest {
 
     private void check(String caseName, String extension, String format) throws Exception {
         String expected = readFixture(caseName + "/expected.txt");
-        String input1Path = getFixturePath(caseName +"/input1." + extension).toString();
-        String input2Path = getFixturePath(caseName +"/input2." + extension).toString();
+        String input1Path = getFixturePath(caseName + "/input1." + extension).toString();
+        String input2Path = getFixturePath(caseName + "/input2." + extension).toString();
         var diff = Differ.generate(input1Path, input2Path);
         var formater = FormatFactory.create(format);
         var actual = formater.format(diff);
         assertEquals(expected, actual,
-                "\nExpected:\n" + expected +
-                        "\n\nActual:\n" + actual);
+                "\nExpected:\n" + expected
+                        + "\n\nActual:\n" + actual);
     }
 
     @Test
