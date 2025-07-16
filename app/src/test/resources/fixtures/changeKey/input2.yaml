@@ -1,3 +1,4 @@
-host: hexlet.io
-timeout: 20
-follow: false
+chars1: false
+obj1:
+  nestedKey: value
+  isNested: false

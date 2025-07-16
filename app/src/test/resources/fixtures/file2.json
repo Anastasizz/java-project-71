@@ -1,5 +1,8 @@
 {
-  "timeout": 20,
-  "verbose": true,
-  "host": "hexlet.io"
+  "chars1": ["a", "b", "c"],
+  "chars2": ["d", "e", "f"],
+  "obj2": {
+    "nestedKey": "Dog"
+  },
+  "numbs1": [5, 7]
 }

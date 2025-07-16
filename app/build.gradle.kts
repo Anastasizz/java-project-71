@@ -5,6 +5,7 @@ plugins {
     jacoco
     id("com.github.ben-manes.versions") version "0.51.0"
     id("org.sonarqube") version "6.2.0.5505"
+    id("io.freefair.lombok") version "8.14"
 }
 
 group = "hexlet.code"
@@ -25,6 +26,13 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    testLogging {
+        events("passed", "failed", "skipped", "standard_error", "standard_out")
+        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+        showExceptions = true
+        showCauses = true
+        showStackTraces = true
+    }
 }
 
 sonar {

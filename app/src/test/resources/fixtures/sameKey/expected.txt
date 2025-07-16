@@ -1,4 +1,4 @@
 {
-   host: hexlet.io
-   timeout: 50
+   chars1: [a, b, c]
+   obj1: {nestedKey=value, isNested=true}
 }

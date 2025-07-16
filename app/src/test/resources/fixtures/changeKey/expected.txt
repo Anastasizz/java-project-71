@@ -1,6 +1,6 @@
 {
-   follow: false
-   host: hexlet.io
- - timeout: 50
- + timeout: 20
+ - chars1: [a, b, c]
+ + chars1: false
+ - obj1: {nestedKey=value, isNested=true}
+ + obj1: {nestedKey=value, isNested=false}
 }
