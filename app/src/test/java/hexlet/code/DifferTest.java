@@ -2,6 +2,8 @@ package hexlet.code;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import hexlet.code.differ.Differ;
+import hexlet.code.formatter.FormatFactory;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;

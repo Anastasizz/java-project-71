@@ -1,8 +1,10 @@
-package hexlet.code;
+package hexlet.code.formatter;
+
+import hexlet.code.differ.DiffEntry;
 
 import java.util.List;
 
-public class FormaterStylish implements Formater {
+public class StylishFormatter implements DiffFormatter {
     @Override
     public String format(List<DiffEntry> diffEntries) {
         StringBuilder result = new StringBuilder();

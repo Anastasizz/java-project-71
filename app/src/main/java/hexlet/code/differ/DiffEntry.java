@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.differ;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
