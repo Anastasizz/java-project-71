@@ -1,0 +1,4 @@
+Property 'chars2' was added with value: [complex value]
+Property 'numbs1' was updated. From [complex value] to [complex value]
+Property 'obj1' was removed
+Property 'obj2' was updated. From [complex value] to [complex value]

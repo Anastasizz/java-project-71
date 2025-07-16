@@ -1,0 +1,2 @@
+Property 'chars1' was removed
+Property 'obj1' was removed

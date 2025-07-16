@@ -3,14 +3,24 @@ package hexlet.code;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import hexlet.code.differ.Differ;
-import hexlet.code.formatter.FormatFactory;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DifferTest {
+    private static List<String> extensions = new ArrayList<>();
+    private static List<String> formats = new ArrayList<>();
+
+    @BeforeAll
+    public static void init() {
+        extensions.addAll(List.of("json", "yaml"));
+        formats.addAll(List.of("stylish", "plain"));
+    }
 
     private static Path getFixturePath(String fileName) {
         return Paths.get("src", "test", "resources", "fixtures", fileName)
@@ -22,56 +32,60 @@ public class DifferTest {
         return Files.readString(path).trim();
     }
 
-    private void check(String caseName, String extension, String format) throws Exception {
-        String expected = readFixture(caseName + "/expected.txt");
+    private void check(String caseName, String extension, String formatName) throws Exception {
+        String expected = readFixture(caseName + "/expected_" + formatName + ".txt");
         String input1Path = getFixturePath(caseName + "/input1." + extension).toString();
         String input2Path = getFixturePath(caseName + "/input2." + extension).toString();
-        var diff = Differ.generate(input1Path, input2Path);
-        var formater = FormatFactory.create(format);
-        var actual = formater.format(diff);
+        var actual = Differ.generate(input1Path, input2Path, formatName);
         assertEquals(expected, actual,
-                "\nExpected:\n" + expected
-                        + "\n\nActual:\n" + actual);
+                        "\nExtension: " + extension
+                        + "\nFormat: " + formatName + "\n");
+//                        + "\nExpected:\n" + expected
+//                        + "\n\nActual:\n" + actual);
     }
 
     @Test
-    public void addKeyJson() throws Exception {
-        check("addKey", "json", "stylish");
+    public void addKey() throws Exception {
+        for (var extension : extensions) {
+            for (var format : formats) {
+                check("addKey", extension, format);
+            }
+        }
     }
+
     @Test
-    public void addKeyYaml() throws Exception {
-        check("addKey", "yaml", "stylish");
+    public void changeKey() throws Exception {
+        for (var extension : extensions) {
+            for (var format : formats) {
+                check("changeKey", extension, format);
+            }
+        }
     }
+
     @Test
-    public void changeKeyJson() throws Exception {
-        check("changeKey", "json", "stylish");
+    public void deleteKey() throws Exception {
+        for (var extension : extensions) {
+            for (var format : formats) {
+                check("deleteKey", extension, format);
+            }
+        }
     }
+
     @Test
-    public void changeKeyYaml() throws Exception {
-        check("changeKey", "yaml", "stylish");
+    public void sameKey() throws Exception {
+        for (var extension : extensions) {
+            for (var format : formats) {
+                check("sameKey", extension, format);
+            }
+        }
     }
+
     @Test
-    public void deleteKeyJson() throws Exception {
-        check("deleteKey", "json", "stylish");
-    }
-    @Test
-    public void deleteKeyYaml() throws Exception {
-        check("deleteKey", "yaml", "stylish");
-    }
-    @Test
-    public void sameKeyJson() throws Exception {
-        check("sameKey", "json", "stylish");
-    }
-    @Test
-    public void sameKeyYaml() throws Exception {
-        check("sameKey", "yaml", "stylish");
-    }
-    @Test
-    public void combCaseJson() throws Exception {
-        check("combCase", "json", "stylish");
-    }
-    @Test
-    public void combCaseYaml() throws Exception {
-        check("combCase", "yaml", "stylish");
+    public void combCase() throws Exception {
+        for (var extension : extensions) {
+            for (var format : formats) {
+                check("combCase", extension, format);
+            }
+        }
     }
 }
