@@ -8,7 +8,7 @@ import hexlet.code.differ.DiffEntry;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class JsonFormatter implements DiffFormatter{
+public class JsonFormatter implements DiffFormatter {
     @Override
     public String format(List<DiffEntry> diffEntries) {
         ObjectMapper objectMapper = new ObjectMapper();

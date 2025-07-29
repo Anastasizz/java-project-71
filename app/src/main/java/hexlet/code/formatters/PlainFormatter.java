@@ -5,7 +5,6 @@ import hexlet.code.differ.DiffEntry;
 import java.util.List;
 import java.util.Map;
 
-import static java.lang.String.valueOf;
 
 public class PlainFormatter implements DiffFormatter {
     @Override
