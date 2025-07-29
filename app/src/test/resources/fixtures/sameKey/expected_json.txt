@@ -1,0 +1,20 @@
+[
+{
+  "key" : "chars1",
+  "value1" : [ "a", "b", "c" ],
+  "value2" : [ "a", "b", "c" ],
+  "operation" : "unchanged"
+},
+{
+  "key" : "obj1",
+  "value1" : {
+    "nestedKey" : "value",
+    "isNested" : true
+  },
+  "value2" : {
+    "nestedKey" : "value",
+    "isNested" : true
+  },
+  "operation" : "unchanged"
+}
+]

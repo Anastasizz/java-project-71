@@ -6,6 +6,7 @@ import hexlet.code.parser.Parser;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 
 public class Differ {
@@ -31,7 +32,7 @@ public class Differ {
                             return new DiffEntry(key, obj1, obj2, "added");
                         } else if (!value2.containsKey(key)) {
                             return new DiffEntry(key, obj1, obj2, "deleted");
-                        } else if (obj1.equals(obj2)) {
+                        } else if (Objects.equals(obj1, obj2)) {
                             return new DiffEntry(key, obj1, obj2, "unchanged");
                         } else {
                             return new DiffEntry(key, obj1, obj2, "changed");

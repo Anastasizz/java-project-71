@@ -5,6 +5,8 @@ import hexlet.code.differ.DiffEntry;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.String.valueOf;
+
 public class PlainFormatter implements DiffFormatter {
     @Override
     public String format(List<DiffEntry> diffEntries) {
@@ -37,9 +39,9 @@ public class PlainFormatter implements DiffFormatter {
         if (object instanceof Map || object instanceof List) {
             return "[complex value]";
         } else if (object instanceof String) {
-            return "'" + object.toString() + "'";
+            return "'" + object + "'";
         } else {
-            return object.toString();
+            return String.valueOf(object);
         }
     }
 }

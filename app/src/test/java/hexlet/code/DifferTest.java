@@ -19,7 +19,7 @@ public class DifferTest {
     @BeforeAll
     public static void init() {
         extensions.addAll(List.of("json", "yaml"));
-        formats.addAll(List.of("stylish", "plain"));
+        formats.addAll(List.of("stylish", "plain", "json"));
     }
 
     private static Path getFixturePath(String fileName) {
