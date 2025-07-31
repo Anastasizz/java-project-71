@@ -8,19 +8,20 @@
 # Установка и сборка
 
 `git clone https://github.com/NastasiyaT/java-project-71.git`
+`cd java-project-71/app`
 
-`#Сборка проекта с помощью Gradle`
+`#Сборка проекта с помощью Gradle`<br>
 `./gradlew build`
 
-`# Генерация исполняемого дистрибутива`
+`# Генерация исполняемого дистрибутива`<br>
 `./gradlew installDist`
 
 # Запуск
 
-`#Синтаксис команды`
+`#Синтаксис команды`<br>
 `gendiff [-f format] <filepath1> <filepath2>`
 
-`#Параметры:`
+### Параметры:
 - `<filepath1>` - путь к **первому файлу** для сравнения
 - `<filepath2>` - путь ко **второму файлу**
 - `--format` (или `-f`) - формат вывода:
@@ -28,13 +29,13 @@
     - `plain`
     - `json`
 
-`#Пример вызова`
+`#Пример вызова`<br>
 `./build/install/app/bin/app -f json file1.json file2.json`
 
-`#Получение справки`
+`#Получение справки`<br>
 `./build/install/app/bin/app -help`
 
-`#Версия`
+`#Версия`<br>
 `./build/install/app/bin/app -v`
 
 # Hexlet tests and linter status:
