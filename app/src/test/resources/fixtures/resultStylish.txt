@@ -1,9 +1,9 @@
 {
-   chars1: [a, b, c]
- + chars2: [d, e, f]
- - numbs1: [1, 2, 3]
- + numbs1: [5, 7]
- - obj1: {nestedKey=value, isNested=true}
- - obj2: {nestedKey=Cat, isNested=true}
- + obj2: {nestedKey=Dog}
+    chars1: [a, b, c]
+  + chars2: [d, e, f]
+  - numbs1: [1, 2, 3]
+  + numbs1: [5, 7]
+  - obj1: {nestedKey=value, isNested=true}
+  - obj2: {nestedKey=Cat, isNested=true}
+  + obj2: {nestedKey=Dog}
 }
