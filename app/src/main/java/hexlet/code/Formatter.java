@@ -7,14 +7,11 @@ import hexlet.code.formatters.StylishFormatter;
 
 public class Formatter {
     public static DiffFormatter create(String format) {
-        if (format.equals("stylish")) {
-            return new StylishFormatter();
-        } else if (format.equals("plain")) {
-            return new PlainFormatter();
-        } else if (format.equals("json")) {
-            return new JsonFormatter();
-        }
+        return switch (format) {
+            case "plain" -> new PlainFormatter();
+            case "json" -> new JsonFormatter();
+            default -> new StylishFormatter();
+        };
 
-        return new StylishFormatter();
     }
 }

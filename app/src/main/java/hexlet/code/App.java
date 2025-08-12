@@ -26,7 +26,6 @@ public class App implements Callable<Integer> {
     }
 
     public static void main(String[] args) throws Exception {
-        //args = new String[] {"temp/file1.json", "temp/file2.json"};
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }

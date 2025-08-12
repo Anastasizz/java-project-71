@@ -1,7 +1,0 @@
-{
-  "chars1": false,
-  "obj1": {
-    "nestedKey": "value",
-    "isNested": false
-  }
-}

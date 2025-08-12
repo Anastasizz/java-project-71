@@ -3,22 +3,46 @@ package hexlet.code;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DifferTest {
-    private static List<String> extensions = new ArrayList<>();
-    private static List<String> formats = new ArrayList<>();
+    private static String resultStylish;
+    private static String resultPlain;
+    private static String resultJson;
 
     @BeforeAll
-    public static void init() {
-        extensions.addAll(List.of("json", "yaml"));
-        formats.addAll(List.of("stylish", "plain", "json"));
+    static void init() throws Exception {
+        resultStylish = readFixture("resultStylish.txt");
+        resultPlain = readFixture("resultPlain.txt");
+        resultJson = readFixture("resultJson.txt");
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"json", "yaml"})
+    public void generateTest(String format) throws Exception {
+        String filePath1 = getFixturePath("input1." + format).toString();
+        String filePath2 = getFixturePath("input2." + format).toString();
+
+        String actualDefault = Differ.generate(filePath1, filePath2);
+        String actualStylish = Differ.generate(filePath1, filePath2, "stylish");
+        String actualPlain = Differ.generate(filePath1, filePath2, "plain");
+        String actualJson = Differ.generate(filePath1, filePath2, "json");
+
+        assertEquals(resultStylish, actualDefault,
+                "\nExpected:\n" + resultStylish + "\n\nActual:\n" + actualDefault);
+        assertEquals(resultStylish, actualStylish,
+                "\nExpected:\n" + resultStylish + "\n\nActual:\n" + actualStylish);
+        assertEquals(resultPlain, actualPlain,
+                "\nExpected:\n" + resultPlain + "\n\nActual:\n" + actualPlain);
+        assertEquals(resultJson, actualJson,
+                "\nExpected:\n" + resultJson + "\n\nActual:\n" + actualJson);
+
+
     }
 
     private static Path getFixturePath(String fileName) {
@@ -29,62 +53,5 @@ public class DifferTest {
     private static String readFixture(String fileName) throws Exception {
         var path = getFixturePath(fileName);
         return Files.readString(path).trim();
-    }
-
-    private void check(String caseName, String extension, String formatName) throws Exception {
-        String expected = readFixture(caseName + "/expected_" + formatName + ".txt");
-        String input1Path = getFixturePath(caseName + "/input1." + extension).toString();
-        String input2Path = getFixturePath(caseName + "/input2." + extension).toString();
-        var actual = Differ.generate(input1Path, input2Path, formatName);
-        assertEquals(expected, actual,
-                        "\nExtension: " + extension
-                        + "\nFormat: " + formatName + "\n");
-//                        + "\nExpected:\n" + expected
-//                        + "\n\nActual:\n" + actual);
-    }
-
-    @Test
-    public void addKey() throws Exception {
-        for (var extension : extensions) {
-            for (var format : formats) {
-                check("addKey", extension, format);
-            }
-        }
-    }
-
-    @Test
-    public void changeKey() throws Exception {
-        for (var extension : extensions) {
-            for (var format : formats) {
-                check("changeKey", extension, format);
-            }
-        }
-    }
-
-    @Test
-    public void deleteKey() throws Exception {
-        for (var extension : extensions) {
-            for (var format : formats) {
-                check("deleteKey", extension, format);
-            }
-        }
-    }
-
-    @Test
-    public void sameKey() throws Exception {
-        for (var extension : extensions) {
-            for (var format : formats) {
-                check("sameKey", extension, format);
-            }
-        }
-    }
-
-    @Test
-    public void combCase() throws Exception {
-        for (var extension : extensions) {
-            for (var format : formats) {
-                check("combCase", extension, format);
-            }
-        }
     }
 }

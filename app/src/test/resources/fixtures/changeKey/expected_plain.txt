@@ -1,2 +1,0 @@
-Property 'chars1' was updated. From [complex value] to false
-Property 'obj1' was updated. From [complex value] to [complex value]
