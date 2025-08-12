@@ -7,7 +7,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import java.util.HashMap;
 import java.util.Map;
 
-public class YamlParser implements Parser {
+public final class YamlParser implements Parser {
     private final ObjectMapper mapper = new YAMLMapper();
 
     @Override

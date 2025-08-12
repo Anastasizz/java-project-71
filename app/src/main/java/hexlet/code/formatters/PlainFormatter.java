@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class PlainFormatter implements DiffFormatter {
+public final class PlainFormatter implements DiffFormatter {
     @Override
     public String format(List<DiffEntry> diffEntries) {
         StringBuilder result = new StringBuilder();
