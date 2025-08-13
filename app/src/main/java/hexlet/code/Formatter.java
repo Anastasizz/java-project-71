@@ -8,9 +8,11 @@ import hexlet.code.formatters.StylishFormatter;
 public class Formatter {
     public static DiffFormatter create(String format) {
         return switch (format) {
+            case "stylish" -> new StylishFormatter();
             case "plain" -> new PlainFormatter();
             case "json" -> new JsonFormatter();
-            default -> new StylishFormatter();
+            default -> throw new RuntimeException("Unknown format: " + format);
+            //;
         };
 
     }
