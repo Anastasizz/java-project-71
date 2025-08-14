@@ -1,5 +1,3 @@
-.PHONY: build checkstyle test
-
 run-dist:
 	make -C app run-dist
 
