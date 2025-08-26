@@ -21,7 +21,7 @@
 # Установка и сборка
 
 ```
-git clone https://github.com/NastasiyaT/java-project-71.git
+git clone https://github.com/Anastasizz/java-project-71.git
 cd java-project-71/app
 ```
 
